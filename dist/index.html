@@ -1,0 +1,213 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Application</title>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            font-family: sans-serif;
+            color: #111;
+            background-color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .vertical-flex {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .horizontal-flex {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .fixed-button {
+            width: 150px;
+        }
+
+        .flex-resizable {
+            flex-grow: 1;
+            flex-shrink: 1;
+        }
+
+        .ml-auto {
+            margin-left: auto;
+        }
+
+        .border {
+            border: 1px solid black;
+        }
+
+        .p-2 {
+            padding: 0.5rem;
+        }
+
+        .m-2 {
+            margin: 0.5rem;
+        }
+
+        .m-auto {
+            margin: auto;
+        }
+
+        .error-p {
+            color: red;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .toggle-content {
+            /*display: none;*/
+            position:fixed;
+            left:0;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            background-color: cadetblue;
+            /*transition: all 1s ease-in-out;*/
+        }
+
+        .toggle-content.is-visible {
+            /*display: block;*/
+            height: 300px;
+            /*left:100px;*/
+        }
+
+        .toggle-content:hover {
+            /*display: block;*/
+            height: 300px !important;
+            left:100px;
+            /*background-color: antiquewhite !important;*/
+        }
+    </style>
+</head>
+<body>
+<div id="app"></div>
+<div>
+    <div class="horizontal-flex border p-2 m-2">
+        <button class="fixed-button m-auto" onclick="openUnnyNet()">Open Unnynet</button>
+        <button class="fixed-button m-auto" onclick="hideUnnyNet()">Hide Unnynet</button>
+    </div>
+    <div id="test-id" class="toggle-content"></div>
+
+    <!--<div class="vertical-flex border p-2 m-2">-->
+        <!--<span class="text-center">Leaderboards</span>-->
+        <!--<div class="horizontal-flex">-->
+            <!--<input id="leaderboard_id" type="text" class="flex-resizable" placeholder="Leaderboard ID">-->
+            <!--<button class="fixed-button" onclick="openLeaderboards()">Open Page</button>-->
+        <!--</div>-->
+        <!--<div class="horizontal-flex">-->
+            <!--<input id="leaderboard_scores" type="number" class="flex-resizable" placeholder="Scores">-->
+            <!--<button class="fixed-button" onclick="reportLeaderboards()">Report Scores</button>-->
+        <!--</div>-->
+        <!--<p id="leaderboard_error" class="error-p text-center">Something bad happened</p>-->
+    <!--</div>-->
+
+    <!--<div class="vertical-flex border p-2 m-2">-->
+        <!--<span class="text-center">Achievements</span>-->
+        <!--<div class="horizontal-flex">-->
+            <!--<input id="achievement_id" type="number" class="flex-resizable" placeholder="Achievement ID">-->
+            <!--<button class="fixed-button" onclick="openAchievements()">Open Page</button>-->
+        <!--</div>-->
+        <!--<div class="horizontal-flex">-->
+            <!--<input id="achievement_scores" type="number" class="flex-resizable" placeholder="Scores">-->
+            <!--<button class="fixed-button" onclick="reportAchievements()">Report Scores</button>-->
+        <!--</div>-->
+        <!--<p id="achievement_error" class="error-p text-center">Something bad happened</p>-->
+    <!--</div>-->
+
+    <!--<div class="vertical-flex border p-2 m-2">-->
+        <!--<span class="text-center">Chat Channel</span>-->
+        <!--<div class="horizontal-flex">-->
+            <!--<input id="chat_id" type="text" class="flex-resizable" placeholder="Channel ID">-->
+            <!--<button class="fixed-button" onclick="openChat()">Open Page</button>-->
+        <!--</div>-->
+        <!--<div class="horizontal-flex">-->
+            <!--<input id="chat_message" type="text" class="flex-resizable" placeholder="Message">-->
+            <!--<button class="fixed-button" onclick="sendMessageToChat()">Send Message</button>-->
+        <!--</div>-->
+        <!--<p id="chat_error" class="error-p text-center">Something bad happened</p>-->
+    <!--</div>-->
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        UnnyNet.initialize({
+            game_id: "test",
+            public_key: "test",
+            default_channel: "test",
+            open_direction: UnnyViewOpenDirection.LEFT_TO_RIGHT
+        });
+    });
+
+    function openUnnyNet() {
+        UnnyNet.openUnnyNet();
+    }
+
+    function hideUnnyNet() {
+        UnnyNet.closeUnnyNet();
+    }
+
+    //Leaders
+
+    function leadersDoneCallback() {
+
+    }
+
+    function openLeaderboards() {
+        if (leaderboard_id.value)
+            UnnyNet.openLeaderboards(leadersDoneCallback);
+    }
+
+    function reportLeaderboards() {
+        if (leaderboard_id.value && leaderboard_scores.value)
+            UnnyNet.reportLeaderboards(leaderboard_id.value, leaderboard_scores.value, leadersDoneCallback);
+    }
+
+    //Achievements
+
+    function achievementsDoneCallback() {
+
+    }
+
+    function openAchievements() {
+        if (achievement_id.value)
+            UnnyNet.openAchievements(achievementsDoneCallback);
+    }
+
+    function reportAchievements() {
+        if (achievement_id.value && achievement_scores.value)
+            UnnyNet.reportAchievements(achievement_id.value, achievement_scores.value, achievementsDoneCallback);
+    }
+
+    //Chat
+
+    function chatDoneCallback() {
+
+    }
+
+    function openChat() {
+        if (chat_id.value)
+            UnnyNet.openChannel(chatDoneCallback);
+    }
+
+    function sendMessageToChat() {
+        if (chat_id.value && chat_message.value)
+            UnnyNet.sendMessageToChannel(chat_id.value, chat_message.value, chatDoneCallback);
+    }
+</script>
+<script type="text/javascript" src="index.js"></script></body>
+</html>
