@@ -282,7 +282,7 @@
 
     function reportLeaderboards() {
         if (leaderboard_id.value && leaderboard_scores.value)
-            UnnyNet.UnnyNet.reportLeaderboards(leaderboard_id.value, leaderboard_scores.value, leadersDoneCallback);
+            UnnyNet.UnnyNet.reportLeaderboards(leaderboard_id.value, leaderboard_scores.value, "warrior", leadersDoneCallback);
     }
 
     function getLeaderboardsInfo() {
