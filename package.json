@@ -3,9 +3,13 @@
   "version": "1.0.2",
   "description": "",
   "main": "src/index.js",
+  "config": {
+    "test": "pavel"
+  },
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --open"
+    "start:test": "webpack-dev-server --open --popka",
+    "start:production": "webpack-dev-server --open --env.SERVER_TYPE=production"
   },
   "author": "",
   "license": "ISC",
