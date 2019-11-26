@@ -2,7 +2,8 @@ import UnnyNet from '../lib/UnnyNet';
 import PopupButtons, {ButtonType} from '../lib/PopupButtons';
 import {ViewOpenDirection} from '../lib/WebView';
 import {Errors} from '../lib/Commands';
-import {NUTAKU_PLATFORM} from '../lib/Constants';
+import {NutakuPlatform} from '../lib/Constants';
+import UnnyConstants from '../lib/Constants';
 
 export default {
     UnnyNet,
@@ -10,5 +11,7 @@ export default {
     ButtonType,
     ViewOpenDirection,
     Errors,
-    NUTAKU_PLATFORM
+    NutakuPlatform,
+    Platform: UnnyConstants.Platform,
+    PurchaseStatusFilter: UnnyConstants.PurchaseStatusFilter
 };

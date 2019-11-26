@@ -251,7 +251,7 @@
         //     console.info("saved!", response);
         // });
 
-        UnnyNet.UnnyNet.Nutaku.authorize('8151', UnnyNet.NUTAKU_PLATFORM.Android, 'fc22a7162485081091cb3b90e7658b6e', 'b1feff5b94b9bbfda3e9e41383ef6779', '49083959718768b7825fee92408ef212f49bf7cae4c43ba2772f6ab9054f9596', (response)=>{
+        UnnyNet.UnnyNet.Nutaku.authorize('8151', UnnyNet.NutakuPlatform.Android, 'fc22a7162485081091cb3b90e7658b6e', 'b1feff5b94b9bbfda3e9e41383ef6779', '49083959718768b7825fee92408ef212f49bf7cae4c43ba2772f6ab9054f9596', (response)=>{
             console.info("DONE!", response);
 
             UnnyNet.UnnyNet.save('TestCollection', 'TestKey', JSON.stringify({
