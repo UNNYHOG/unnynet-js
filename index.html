@@ -226,8 +226,9 @@
             public_key: "YTNkYmQxZjktNTk0Ny00",
             default_channel: "0",
             open_animation: UnnyNet.ViewOpenDirection.RIGHT_TO_LEFT,
-            platform: UnnyNet.Platform.FACEBOOK,
-            debug: true
+            platform: UnnyNet.Platform.FB_INSTANT,
+            debug: true,
+            lite_version: false//shows if webview should be turned off
         }, ()=> {
             console.log("UnnyNet is Ready");
             console.info("MANAGERS ", UnnyNet.UnnyNet.RGC.getDictionary("managers"));
