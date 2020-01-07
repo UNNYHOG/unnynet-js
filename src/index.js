@@ -13,5 +13,6 @@ export default {
     Errors,
     NutakuPlatform,
     Platform: UnnyConstants.Platform,
+    Environment: UnnyConstants.Environment,
     PurchaseStatusFilter: UnnyConstants.PurchaseStatusFilter
 };

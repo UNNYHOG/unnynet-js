@@ -226,9 +226,11 @@
             public_key: "YTNkYmQxZjktNTk0Ny00",
             default_channel: "0",
             open_animation: UnnyNet.ViewOpenDirection.RIGHT_TO_LEFT,
-            platform: UnnyNet.Platform.FB_INSTANT,
+            platform: UnnyNet.Platform.FACEBOOK,
+            environment: UnnyNet.Environment.Development,
             debug: true,
-            lite_version: false//shows if webview should be turned off
+            lite_version: false, //shows if webview should be turned off
+            fb_app_id: 758844231303769//temporary.. it should be downloaded from the game settings
         }, ()=> {
             console.log("UnnyNet is Ready");
             console.info("MANAGERS ", UnnyNet.UnnyNet.RGC.getDictionary("managers"));
