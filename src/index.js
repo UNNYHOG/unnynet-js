@@ -3,7 +3,7 @@ import Social from '../lib/Social';
 import Events from '../lib/Events';
 import Chat from '../lib/Chat';
 import Storage from '../lib/Storage';
-import Purchases from '../lib/Purchases';
+import Payments from '../lib/Payments';
 import MainController from '../lib/MainController';
 import PopupButtons, {ButtonType} from '../lib/PopupButtons';
 import {ViewOpenDirection} from '../lib/WebView';
@@ -17,7 +17,7 @@ export default {
     Events,
     Social,
     Storage,
-    Purchases,
+    Payments,
     MainController,
     PopupButtons,
     ButtonType,
