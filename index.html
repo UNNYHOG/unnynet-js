@@ -224,28 +224,38 @@
         // f6d3e8d9-e41b-4fde-bdf0-d30df9092672?
 
         UnnyNet.MainController.init({
-            game_id: "8ff16d3c-ebcc-4582-a734-77ca6c14af29",
+            game_id: "819ced8f-14c6-478d-85d2-0fa616f79fa5",//hell
+                //"f6d3e8d9-e41b-4fde-bdf0-d30df9092672",//myst
             public_key: "YTNkYmQxZjktNTk0Ny00",
             default_channel: "0",
             open_animation: UnnyNet.ViewOpenDirection.RIGHT_TO_LEFT,
-            platform: UnnyNet.Platform.NUTAKU,
+            //platform: UnnyNet.Platform.NUTAKU,
+            platform: UnnyNet.Platform.VKONTAKTE,
             environment: UnnyNet.Environment.Development,
             debug: true,
             lite_version: false, //shows if webview should be turned off
             fb_app_id: 758844231303769,//temporary.. it should be downloaded from the game settings
-            callback: ()=> {
-            console.log("UnnyNet is Ready");
+            callback: (status)=> {
+            console.info("UnnyNet is Ready", status);
             console.info("MANAGERS ", UnnyNet.Storage.getRawDictionary("managers"));
 
-            // UnnyNet.UnnyNet.instance.API.authWithNutaku('9053', UnnyNet.NutakuPlatform.Android,
+            UnnyNet.Payments.getProducts((responseData)=>{
+                console.info("!!!", responseData);
+                if (responseData.success) {
+                    UnnyNet.Payments.purchaseProduct(responseData.data[0].item_id, (purchaseData)=>{
+                        console.info("???", purchaseData);
+                    });
+                }
+            });
+            // UnnyNet.UnnyNet.instance.API.authWithNutaku('9053', UnnyNet.SubPlatform.NutakuAndroid,
             //     '5e624f484926451f54c9668f95728b23',
             //     '37b64f6dbe9beb577ebc428c08496921',
             //     'b7ad342609afed10bd614cb983dd6e231c986ff1d8d52d359e2bd35bd4e586e5',
             //     (resp)=>{
             //         console.info("****==>>AUTH", resp);
-                    UnnyNet.Storage.load("General", "PlayerInfo", (respLoad)=>{
-                       console.info("****==>>laoded", respLoad);
-                    });
+            //         UnnyNet.Storage.load("General", "PlayerInfo", (respLoad)=>{
+            //            console.info("****==>>laoded", respLoad);
+            //         });
                 // });
             }
         });
@@ -269,7 +279,7 @@
         //     console.info("saved!", response);
         // });
 
-        // UnnyNet.UnnyNet.Nutaku.authorize('8151', UnnyNet.NutakuPlatform.Android, 'fc22a7162485081091cb3b90e7658b6e', 'b1feff5b94b9bbfda3e9e41383ef6779', '49083959718768b7825fee92408ef212f49bf7cae4c43ba2772f6ab9054f9596', (response)=>{
+        // UnnyNet.UnnyNet.Nutaku.authorize('8151', UnnyNet.SubPlatform.NutakuAndroid, 'fc22a7162485081091cb3b90e7658b6e', 'b1feff5b94b9bbfda3e9e41383ef6779', '49083959718768b7825fee92408ef212f49bf7cae4c43ba2772f6ab9054f9596', (response)=>{
         //     console.info("DONE!", response);
         //
         //     UnnyNet.Storage.save('TestCollection', 'TestKey', JSON.stringify({

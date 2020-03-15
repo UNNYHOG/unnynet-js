@@ -8,7 +8,6 @@ import MainController from '../lib/MainController';
 import PopupButtons, {ButtonType} from '../lib/PopupButtons';
 import {ViewOpenDirection} from '../lib/WebView';
 import {Errors} from '../lib/Commands';
-import {NutakuPlatform} from '../lib/Constants';
 import UnnyConstants from '../lib/Constants';
 
 export default {
@@ -23,7 +22,7 @@ export default {
     ButtonType,
     ViewOpenDirection,
     Errors,
-    NutakuPlatform,
+    SubPlatform: UnnyConstants.SubPlatform,
     Platform: UnnyConstants.Platform,
     Environment: UnnyConstants.Environment,
     PurchaseStatusFilter: UnnyConstants.PurchaseStatusFilter
