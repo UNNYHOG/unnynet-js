@@ -9,6 +9,7 @@ import PopupButtons, {ButtonType} from '../lib/PopupButtons';
 import {ViewOpenDirection} from '../lib/WebView';
 import {Errors} from '../lib/Commands';
 import UnnyConstants from '../lib/Constants';
+import Advertising from '../lib/Advertising';
 
 export default {
     Auth,
@@ -22,6 +23,7 @@ export default {
     ButtonType,
     ViewOpenDirection,
     Errors,
+    Advertising,
     SubPlatform: UnnyConstants.SubPlatform,
     Platform: UnnyConstants.Platform,
     Environment: UnnyConstants.Environment,
