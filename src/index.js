@@ -24,7 +24,6 @@ export default {
     ViewOpenDirection,
     Errors,
     Advertising,
-    SubPlatform: UnnyConstants.SubPlatform,
     Platform: UnnyConstants.Platform,
     Environment: UnnyConstants.Environment,
     PurchaseStatusFilter: UnnyConstants.PurchaseStatusFilter
