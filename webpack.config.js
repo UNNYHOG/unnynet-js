@@ -8,7 +8,7 @@ const uglifyJsPlugin = require('uglifyjs-webpack-plugin');module.exports = {
         libraryTarget: 'umd',
         libraryExport: 'default',
         path: path.resolve(__dirname, 'dist'),
-        filename: 'index.js'
+        filename: 'unnynet.latest.js'
     },
     module: {
         rules: [
