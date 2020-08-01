@@ -70,10 +70,6 @@
 <body>
 <div id="app"></div>
 <div>
-    <div class="horizontal-flex justify-left border p-2 m-2">
-        <button class="fixed-button m-auto" onclick="openUnnyNet()">Open Unnynet</button>
-        <button class="fixed-button m-auto" onclick="hideUnnyNet()">Hide Unnynet</button>
-    </div>
 
     <div class="vertical-flex border p-2 m-2">
         <span class="text-center">Leaderboards</span>
@@ -234,7 +230,6 @@
             platform: UnnyNet.Platform.ODNOKLASSNIKI,
             environment: UnnyNet.Environment.Development,
             debug: true,
-            lite_version: true, //shows if webview should be turned off
             fb_app_id: 758844231303769,//temporary.. it should be downloaded from the game settings
             callback: (status)=> {
             console.info("UnnyNet is Ready", status);
@@ -304,14 +299,6 @@
         //     // });
         // });
     });
-
-    function openUnnyNet() {
-        UnnyNet.MainController.open();
-    }
-
-    function hideUnnyNet() {
-        UnnyNet.MainController.close();
-    }
 
     function setTextForLabel(label_id, data) {
         if (data.success) {
