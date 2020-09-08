@@ -231,14 +231,16 @@
             default_channel: "0",
             open_animation: UnnyNet.ViewOpenDirection.RIGHT_TO_LEFT,
             //platform: UnnyNet.Platform.NUTAKU,
-            platform: UnnyNet.Platform.ODNOKLASSNIKI,
+            //platform: UnnyNet.Platform.ODNOKLASSNIKI,
+            platform: UnnyNet.Platform.FACEBOOK,
             environment: UnnyNet.Environment.Development,
             debug: true,
             lite_version: true, //shows if webview should be turned off
-            fb_app_id: 758844231303769,//temporary.. it should be downloaded from the game settings
+            fb_app_id: 758844231303769,//hell temporary.. it should be downloaded from the game settings
+            // fb_app_id: 2102417846485785,//fish temporary.. it should be downloaded from the game settings
             callback: (status)=> {
             console.info("UnnyNet is Ready", status);
-            console.info("MANAGERS ", UnnyNet.Storage.getRawDictionary("managers"));
+            console.info("!MANAGERS ", UnnyNet.Storage.getRawDictionary("managers"));
 
             UnnyNet.Payments.getProducts((responseData)=>{
                 console.info("!!!", responseData);
@@ -249,13 +251,13 @@
                 }
             });
 
-            console.error("play ad!!!!>>");
-            UnnyNet.Advertising.playRewardedAd({
-                onCompleted: ()=>console.log("***>>>AD: onCompleted"),
-                onNoAds: ()=>console.log("***>>>AD: onNoAds"),
-                onAdBlock: ()=>console.log("***>>>AD: onAdBlock"),
-                onStarted: ()=>console.log("***>>>AD: onStarted"),
-            });
+            // console.error("play ad!!!!>>");
+            // UnnyNet.Advertising.playRewardedAd({
+            //     onCompleted: ()=>console.log("***>>>AD: onCompleted"),
+            //     onNoAds: ()=>console.log("***>>>AD: onNoAds"),
+            //     onAdBlock: ()=>console.log("***>>>AD: onAdBlock"),
+            //     onStarted: ()=>console.log("***>>>AD: onStarted"),
+            // });
 
             // UnnyNet.UnnyNet.instance.API.authWithNutaku('9053', UnnyNet.SubPlatform.NutakuAndroid,
             //     '5e624f484926451f54c9668f95728b23',
